@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EnglishLearning
 {
     class Quiz
     {
-        string Question;
-        public List<String> Tests;
-        int Answer;
-        public Quiz(string question, int answer, string test1, string test2, string test3, string test4)
+        public string Question { get; set; }
+        public List<string> Answers;
+        public int CorrectAnswer { get; set; }
+
+        public Quiz(string question, string answer1, string answer2, string answer3, string answer4, int correctAnswer)
         {
-            Tests = new List<string>();
+            Answers = new List<string>();
             Question = question;
-            Tests.Add(test1);
-            Tests.Add(test2);
-            Tests.Add(test3);
-            Tests.Add(test4);
-            Answer = answer;
-
+            Answers.Add(answer1);
+            Answers.Add(answer2);
+            Answers.Add(answer3);
+            Answers.Add(answer4);
+            CorrectAnswer = correctAnswer;
         }
-
     }
 }
