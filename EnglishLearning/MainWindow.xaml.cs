@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,7 +28,6 @@ namespace EnglishLearning
         {
             users = new List<User>();
             GetUsers();
-
             InitializeComponent();
         }
 
@@ -63,6 +63,58 @@ namespace EnglishLearning
                 MessageBox.Show("Error in file!");
                 Environment.Exit(0);
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Reg.Visibility = Visibility.Hidden;
+            Login.Visibility = Visibility.Hidden;
+            Back.Visibility = Visibility.Visible;
+            Register.Visibility = Visibility.Visible;
+            LoginLabel.Content = "Enter Login:";
+            PasswordLabel.Content = "Enter Password:";
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bool isTrue = true;
+                foreach (var item in users)
+                {
+                    if (LoginTextBox.Text == item.Login)
+                    {
+                        isTrue = false;
+                        MessageBox.Show("Such login is already exists");
+                        break;
+                    }
+                }
+                if(isTrue)
+                    users.Add(new User(LoginTextBox.Text, passwordBox.Password));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error!");
+            }
+            LoginTextBox.Text = "";
+            passwordBox.Password = "";
+            LoginLabel.Content = "Login:";
+            PasswordLabel.Content = "Password:";
+            Reg.Visibility = Visibility.Visible;
+
+            Back.Visibility = Visibility.Hidden;
+            Login.Visibility = Visibility.Visible;
+            Register.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            LoginLabel.Content = "Login:";
+            PasswordLabel.Content = "Password:";
+            Reg.Visibility = Visibility.Visible;
+            Login.Visibility = Visibility.Visible;
+            Register.Visibility = Visibility.Hidden;
+            Back.Visibility = Visibility.Hidden;
         }
     }
 }

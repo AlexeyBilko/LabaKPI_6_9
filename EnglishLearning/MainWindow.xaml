@@ -9,7 +9,7 @@ mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="MainWindow"  Height="400" Width="400">
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -23,6 +23,21 @@ mc:Ignorable="d"
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <Button Visibility="Hidden" Click="Button_Click_3" Name="Back" Grid.Column="0" Grid.Row="0"
+                    Background="Gray" Margin="0,0,100,0" Width="70" Height="40"
+                    Style="{DynamicResource ButtonStyle1}"
+                    Template="{StaticResource StandartButton}">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="#efefef" 
+                       FontFamily="Berlin Sans FB Demi"
+                       FontSize="22">Back</Label>
+            <Button.ToolTip>
+                <ToolTip>
+                    Back to Log In
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
 
         <Button Click="Button_Click" Grid.Column="1" Grid.Row="0"
                     Background="#FF2E00" Margin="100,0,0,0" Width="50" Height="40"
@@ -39,8 +54,8 @@ mc:Ignorable="d"
             </Button.ToolTip>-->
         </Button>
 
-        <Label Grid.Row="2" FontFamily="Arial Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login:"></Label>
-        <Label Grid.Row="3" FontFamily="Arial Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Password:"></Label>
+        <Label Name="LoginLabel" Grid.Row="2" FontFamily="Arial Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login:"></Label>
+        <Label Name="PasswordLabel" Grid.Row="3" FontFamily="Arial Black" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Password:"></Label>
 
         <Border Width="150" BorderBrush="Black" BorderThickness="2" CornerRadius="7" Height="36" Grid.Column="1" Grid.Row="2">
             <TextBox Name="LoginTextBox" Margin="2" BorderThickness="0" FontSize="20" Height="35" Style="{DynamicResource TextBoxCornerRadius7}"></TextBox>
@@ -56,7 +71,7 @@ mc:Ignorable="d"
                                  />
         </Border>
 
-        <Button Click="Button_Click_1" Grid.Column="1" Grid.Row="4"
+        <Button Name="Login" Click="Button_Click_1" Grid.Column="1" Grid.Row="4"
                     Background="#75BC64" Margin="8" Width="160" Height="50"
                     Style="{DynamicResource ButtonStyle1}"
                     Template="{StaticResource StandartButton}">
@@ -70,7 +85,7 @@ mc:Ignorable="d"
                 </ToolTip>
             </Button.ToolTip>-->
         </Button>
-        <Button Click="Button_Click"  Grid.Column="0" Grid.Row="4"
+        <Button Click="Button_Click_2" Name="Reg" Grid.Column="0" Grid.Row="4"
                     Background="#E9BF2A" Margin="8" Width="160"  Height="50"
                     Style="{DynamicResource ButtonStyle1}"
                     Template="{StaticResource StandartButton}">
@@ -84,8 +99,16 @@ mc:Ignorable="d"
                 </ToolTip>
             </Button.ToolTip>-->
         </Button>
+        <Button Background="#E9BF2A" Click="Register_Click" Name="Register" Visibility="Hidden" Grid.Column="0" Grid.Row="5" Margin="134,0,134,50" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                    Style="{DynamicResource ButtonStyle1}"
+                    Template="{StaticResource StandartButton}">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="#efefef" 
+                       FontFamily="Berlin Sans FB Demi"
+                       FontSize="22">Register</Label>
+        </Button>
+        
         <Label Margin="10" Grid.Row="6" Grid.Column="1" FontFamily="Arial Black" Foreground="#75BC64" FontSize="15" >----------------------------------------</Label>
         <Label Margin="10"  Grid.Row="6" Grid.Column="0" FontFamily="Arial Black" Foreground="#E9BF2A" FontSize="15" >----------------------------------------</Label>
-
     </Grid>
 </Window>
