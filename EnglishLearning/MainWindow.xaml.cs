@@ -42,6 +42,7 @@ namespace EnglishLearning
             {
                 if (LoginTextBox.Text == item.Login && passwordBox.Password == item.Password)
                 {
+                    MessageBox.Show("Log In successfull! The application is under construction)");
                     Environment.Exit(0);
                 }
             }
@@ -61,6 +62,26 @@ namespace EnglishLearning
             catch
             {
                 MessageBox.Show("Error in file!");
+                Environment.Exit(0);
+            }
+        }
+
+        private void SaveUsers()
+        {
+            try
+            {
+                File.WriteAllText("users.txt", "");
+
+                List<string> buf = new List<string>();
+                foreach (var item in users)
+                {
+                    buf.Add(item.Login + " " + item.Password + " " + item.Level + " " + item.Progress);
+                }
+                
+                File.AppendAllLines("users.txt", buf);
+            }
+            catch(Exception)
+            {
                 Environment.Exit(0);
             }
         }
@@ -89,8 +110,12 @@ namespace EnglishLearning
                         break;
                     }
                 }
-                if(isTrue)
+                if (isTrue)
+                {
                     users.Add(new User(LoginTextBox.Text, passwordBox.Password));
+                    SaveUsers();
+                }
+
             }
             catch (Exception)
             {

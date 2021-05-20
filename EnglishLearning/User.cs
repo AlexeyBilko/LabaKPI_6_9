@@ -18,6 +18,8 @@ namespace EnglishLearning
         {
             Login = login;
             Password = password;
+            Level = 0;
+            Progress = 0;
         }
 
         public User(string login, string password, int level, int progress)
